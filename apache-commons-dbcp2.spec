@@ -18,6 +18,9 @@ BuildRequires:	mvn(commons-logging:commons-logging)
 # Managed connections import javax.transaction. The upstream coordinate
 # is jakarta.transaction-api 1.3.3; the system jar is JTA 1.1.
 BuildRequires:	mvn(javax.transaction:jta)
+# The JTA POM's parent is not a Requires of the jar. The parent package
+# publishes that POM as specs-parent and aliases it to specs.
+BuildRequires:	mvn(org.apache.geronimo.specs:specs-parent:pom::)
 # Literal, so the first rpmbuild -bs records them before sysjar is installed.
 BuildRequires:	maven
 BuildRequires:	java-current-devel
